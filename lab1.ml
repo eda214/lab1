@@ -101,7 +101,7 @@ appropriate OCaml expression to assign the value to the variable
 exercise1 below.
 ......................................................................*)
 
-let exercise3 () = failwith "exercise3 not implemented" ;;
+let exercise3 () = ~- (5 - 3) ;;
 
 (* Hint: The OCaml concrete expression
 
@@ -113,6 +113,14 @@ does *not* correspond to the abstract syntax above.
 Exercise 4: Draw the tree that the concrete syntax "~- 5 - 3" does
 correspond to. Check it with a member of the course staff if you'd
 like.
+
+      -
+      ^
+     / \
+    /   \
+  ~-     3
+   |
+   5
 ......................................................................*)
 
 
@@ -136,6 +144,8 @@ evaluates to two different results dependent on the associativity of
 the operator. Use this expression to determine the associativity of
 the operator. Check your answer with a member of the course staff if
 you'd like.
+
+4-5-6
 ......................................................................*)
 
 (*======================================================================
@@ -148,25 +158,24 @@ expressions below? Test your solution by uncommenting the examples
 error is generated.
 ......................................................................*)
 
-(*  <--- After you've replaced the ???s, remove this start of comment line
+<--- After you've replaced the ???s, remove this start of comment line
 
-let exercise6a : ??? = 42 ;;
+let exercise6a : int = 42 ;;
 
-let exercise6b : ??? =
+let exercise6b : string =
   let greet y = "Hello " ^ y
   in greet "World!";;
 
-let exercise6c : ??? =
+let exercise6c : float =
   fun x -> x +. 11.1 ;;
 
-let exercise6d : ??? =
+let exercise6d : bool =
   fun x -> x < x + 1 ;;
 
-let exercise6e : ??? =
+let exercise6e : int -> int =
   fun x -> fun y -> x + int_of_float y ;;
 
 
-and remove this whole end of comment line too. ---->  *)
 
 (*======================================================================
 Part 3: First-order functional programming
