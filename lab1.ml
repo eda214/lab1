@@ -158,7 +158,6 @@ expressions below? Test your solution by uncommenting the examples
 error is generated.
 ......................................................................*)
 
-<--- After you've replaced the ???s, remove this start of comment line
 
 let exercise6a : int = 42 ;;
 
@@ -166,13 +165,13 @@ let exercise6b : string =
   let greet y = "Hello " ^ y
   in greet "World!";;
 
-let exercise6c : float =
+let exercise6c : float -> float =
   fun x -> x +. 11.1 ;;
 
-let exercise6d : bool =
+let exercise6d : int -> bool =
   fun x -> x < x + 1 ;;
 
-let exercise6e : int -> int =
+let exercise6e : int -> float -> int =
   fun x -> fun y -> x + int_of_float y ;;
 
 
