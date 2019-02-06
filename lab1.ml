@@ -226,7 +226,7 @@ to the function.
 ......................................................................*)
 
 let say_hello (name : string) : string =
-  if name = "Gabby"
+  if name = "Gabby" || name = "gabby"
   then "Hi " ^ name ^ ". Welcome home! How are you today?"
   else "Hi " ^ name ^ ". How are you today?";;
 
@@ -341,4 +341,6 @@ head*!)
 let rec sum_from_zero (x : int) : int =
   if x = 0
   then 0
-  else x + sum_from_zero (x - 1) ;;
+  else if x > 0
+  then x + sum_from_zero (x - 1) 
+  else x + sum_from_zero (x + 1) ;;
