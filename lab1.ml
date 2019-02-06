@@ -205,9 +205,9 @@ functions in the lab to get some practice with automated unit testing.
 ......................................................................*)
 
 let square (x : int) : int  =
-  failwith "square not implemented" ;;
+  x * x ;;
 
-let exercise7 = 0 ;;
+let exercise7 = square 5 ;;
 
 (*......................................................................
 Exercise 8: Define a function say_hello that, given a name, creates a
@@ -226,7 +226,7 @@ to the function.
 ......................................................................*)
 
 let say_hello (name : string) : string =
-  failwith "say_hello not implemented";;
+  "Hello " ^ name ^ ". How are you today?";;
 
 (*......................................................................
 Exercise 9: Define a function, small_bills, that determines, given a
@@ -239,7 +239,7 @@ integers. For this lab, you may assume all prices given are
 non-negative.
 ......................................................................*)
 let small_bills (price : int) : bool =
-  failwith "small_bills not implemented" ;;
+  (price mod 20) > 0 ;;
 
 (*......................................................................
 Exercise 10:
@@ -267,10 +267,37 @@ that:
 
 ......................................................................*)
 
+
+
 let computus_month (year : int) : int =
-  failwith "computus_month not implemented" ;;
+  let a = y mod 19 in
+    let b = y / 100 in
+      let c = y mod 100 in
+        let d = b / 4 in
+          let e = b mod 4 in
+            let f = (b + 8) / 25 in
+              let g = (b - f + 1) / 3 in
+                let h = (19*a + b - d - g + 15) mod 30 in
+                  let i = c / 4 in
+                    let k = c mod 4 in
+                      let l = (32 + 2*e + 2*i - h - k) mod 7 in
+                        let m =  (a + 11*h + 22*l) / 451 in
+                          (h + l - 7*m + 114) / 31 ;;
+
 let computus_day (year : int) : int =
-  failwith "computus_day not implemented" ;;
+  let a = y mod 19 in
+    let b = y / 100 in
+      let c = y mod 100 in
+        let d = b / 4 in
+          let e = b mod 4 in
+            let f = (b + 8) / 25 in
+              let g = (b - f + 1) / 3 in
+                let h = (19*a + b - d - g + 15) mod 30 in
+                  let i = c / 4 in
+                    let k = c mod 4 in
+                      let l = (32 + 2*e + 2*i - h - k) mod 7 in
+                        let m =  (a + 11*h + 22*l) / 451 in
+                          (h + l - 7*m + 114) mod 31 + 1;;
 
 (*======================================================================
 Part 4: Utilizing recursion
@@ -289,7 +316,9 @@ this exercise, you may assume all inputs will be positive.
 ......................................................................*)
 
 let factorial (x : int) : int =
-  failwith "factorial not implementated" ;;
+  if x = 0
+  then 1
+  else x * fact (x - 1) ;;
 
 (*......................................................................
 Exercise 12: Define a recursive function that sums all the elements
@@ -308,4 +337,6 @@ head*!)
 ......................................................................*)
 
 let sum_from_zero (x : int) : int =
-  failwith "sum_from_zero not implemented" ;;
+  if x = 0
+  then 0
+  else x + sum_from_zero (x - 1) ;;
