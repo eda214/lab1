@@ -270,9 +270,9 @@ that:
 
 
 let computus_month (year : int) : int =
-  let a = y mod 19 in
-    let b = y / 100 in
-      let c = y mod 100 in
+  let a = year mod 19 in
+    let b = year / 100 in
+      let c = year mod 100 in
         let d = b / 4 in
           let e = b mod 4 in
             let f = (b + 8) / 25 in
@@ -285,9 +285,9 @@ let computus_month (year : int) : int =
                           (h + l - 7*m + 114) / 31 ;;
 
 let computus_day (year : int) : int =
-  let a = y mod 19 in
-    let b = y / 100 in
-      let c = y mod 100 in
+  let a = year mod 19 in
+    let b = year / 100 in
+      let c = year mod 100 in
         let d = b / 4 in
           let e = b mod 4 in
             let f = (b + 8) / 25 in
@@ -315,10 +315,10 @@ this exercise, you may assume all inputs will be positive.
 
 ......................................................................*)
 
-let factorial (x : int) : int =
+let rec factorial (x : int) : int =
   if x = 0
   then 1
-  else x * fact (x - 1) ;;
+  else x * factorial (x - 1) ;;
 
 (*......................................................................
 Exercise 12: Define a recursive function that sums all the elements
@@ -336,7 +336,7 @@ the mathematician Carl Freiedrich Gauss as a seven-year-old, *in his
 head*!)
 ......................................................................*)
 
-let sum_from_zero (x : int) : int =
+let rec sum_from_zero (x : int) : int =
   if x = 0
   then 0
   else x + sum_from_zero (x - 1) ;;
